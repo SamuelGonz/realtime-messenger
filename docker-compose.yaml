@@ -1,0 +1,8 @@
+services:
+  estadisticas:
+    image: mongo:5.0.0
+    container_name: clone-messenger
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data/db
