@@ -9,8 +9,8 @@ import { format } from "date-fns";
 import { Avatar } from "@/app/components/Avatar";
 import { useOtherUser } from "@/app/hooks";
 
-import type { Conversation, Message, User } from "@prisma/client";
 import type { FullConversationType } from "@/app/types";
+import { AvatarGroup } from "@/app/components/AvatarGroup";
 
 interface Props {
    data: FullConversationType;
@@ -63,7 +63,7 @@ export const ConversationBox: React.FC<Props> = ({ data, selected }) => {
             selected ? "bg-neutral-100" : "bg-white"
          )}
       >
-         <Avatar user={otherUser} />
+         {data.isGroup ? <AvatarGroup users={data.users} /> : <Avatar user={otherUser} />}
          <div className="min-2-0 flex-1">
             <div className="focus:outline-none">
                <div className="flex justify-between items-center mb-1">
